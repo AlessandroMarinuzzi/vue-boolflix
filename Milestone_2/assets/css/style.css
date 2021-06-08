@@ -1,0 +1,54 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #18191a;
+    height: 100vh;
+}
+
+/* HEADER */
+header{
+    background-color: #242526;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.query{
+    display: flex;
+    align-self: center;
+}
+
+.query > button,
+.query > input{
+    margin: 0 10px;
+    padding: 5px;
+}
+/* /HEADER */
+
+/* MAIN */
+main{
+    color: white;
+}
+.movie_list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+    border-bottom: 1px solid white;
+}
+.movie{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    margin: 20px 15px;
+    padding: 5px;
+    text-align: center;
+}
+
+
+/* /MAIN */
+
