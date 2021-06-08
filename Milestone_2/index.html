@@ -15,7 +15,7 @@
             <!-- Search -->
             <div class="query">
                 <button @click="search">Search</button>
-                <input type="text" v-model="query">
+                <input type="text" v-model="query" @keyup.enter="search">
             </div>
             <!-- /Search -->
         </header>
@@ -28,7 +28,7 @@
                 <li class="movie" v-for="result in movieResults">
                     <div class="title">{{ result.title }}</div>
                     <div class="original_title">{{ result.original_title }}</div>
-                    <div class="language">{{ result.original_language }}</div>
+                    <img class="language" :src="getFlag(result.original_language)" :alt="result.original_language">
                     <div class="vote">{{ result.vote_average }}</div>
                 </li> 
             </ul>
@@ -39,7 +39,7 @@
                 <li class="tv_show" v-for="result in tvResults">
                     <div class="title">{{ result.name }}</div>
                     <div class="original_title">{{ result.original_name }}</div>
-                    <div class="language">{{ result.original_language }}</div>
+                    <img class="language" :src="getFlag(result.original_language)" :alt="result.original_language">
                     <div class="vote">{{ result.vote_average }}</div>
                 </li>
             </ul>
