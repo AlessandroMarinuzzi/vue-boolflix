@@ -13,14 +13,17 @@
         <!-- HEADER -->
         <header id="site_header">
             <!-- Search -->
-            <input type="text" v-model="query">
-            <button @click="search">Search</button>
+            <div class="query">
+                <button @click="search">Search</button>
+                <input type="text" v-model="query">
+            </div>
             <!-- /Search -->
         </header>
         <!-- /HEADER -->
 
         <!-- MAIN -->
         <main id="site_main">
+            <!-- Movies -->
             <ul class="movie_list">
                 <li class="movie" v-for="result in results">
                     <div class="title">{{ result.title }}</div>
@@ -29,7 +32,11 @@
                     <div class="vote">{{ result.vote_average }}</div>
                 </li> 
             </ul>
+            <!-- /Movies -->
 
+            <!-- Tv Series -->
+
+            <!-- /Tv Series -->
         </main>
         <!-- /MAIN -->
     </div>
