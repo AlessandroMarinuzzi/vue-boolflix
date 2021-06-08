@@ -25,7 +25,7 @@
         <main id="site_main">
             <!-- Movies -->
             <ul class="movie_list">
-                <li class="movie" v-for="result in results">
+                <li class="movie" v-for="result in movieResults">
                     <div class="title">{{ result.title }}</div>
                     <div class="original_title">{{ result.original_title }}</div>
                     <div class="language">{{ result.original_language }}</div>
@@ -35,7 +35,14 @@
             <!-- /Movies -->
 
             <!-- Tv Series -->
-
+            <ul class="tv_list">
+                <li class="tv_show" v-for="result in tvResults">
+                    <div class="title">{{ result.name }}</div>
+                    <div class="original_title">{{ result.original_name }}</div>
+                    <div class="language">{{ result.original_language }}</div>
+                    <div class="vote">{{ result.vote_average }}</div>
+                </li>
+            </ul>
             <!-- /Tv Series -->
         </main>
         <!-- /MAIN -->
