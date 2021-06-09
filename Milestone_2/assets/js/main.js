@@ -27,14 +27,10 @@ const root = new Vue({
             })
         },
 
-        // getFlag(flagCode){
-        //     if(flagCode === "en"){
-        //         flagCode = "gb"
-        //     }
-        //     const flag = `https://www.countryflags.io/${flagCode}/shiny/32.png`;
-        //     // const flag = "https://www.unknown.nu/flags/"
-        //     console.log(flag);
-        //     return flag
+        // fiveStarsVote(number) {
+        //     const roundedNumber = Math.ceil(number);
+        //     console.log(roundedNumber);
+        //     return parseInt(roundedNumber, 5);
         // }
     },
 })
