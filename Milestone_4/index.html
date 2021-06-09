@@ -41,7 +41,7 @@
                             </div>
                             <div class="vote_number">Rating: {{ fiveStarsVote(result.vote_average) }} /5</div>
                         </div>
-                        <p class="overview">Overview: {{result.overview}}</p>
+                        <p class="overview">Overview: {{result.overview ? getShortOverview(result.overview) : "Plot not available yet."}}</p>
                     </div>
                 </li> 
             </ul>
@@ -62,7 +62,7 @@
                             </div>
                             <div class="vote_number">{{ fiveStarsVote(result.vote_average) }} /5</div>
                         </div>
-                        <p class="overview">Overview: {{result.overview}}</p>
+                        <p class="overview">Overview: {{result.overview ? getShortOverview(result.overview) : "Plot not available yet."}}</p>
                     </div>
                 </li>
             </ul>

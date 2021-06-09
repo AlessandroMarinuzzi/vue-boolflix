@@ -48,6 +48,7 @@ main{
     width: 100%;
     height: 100%;
     padding: 15px;
+    padding-top: 80px;
     display:none;
     position: absolute;
     bottom: 0;
@@ -98,5 +99,7 @@ img.language{
 .voted_star{
     color: gold;
 }
+
+
 /* /MAIN */
 

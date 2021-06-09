@@ -7,7 +7,8 @@ const root = new Vue({
 
         movieResults:{},
 
-        tvResults:{}
+        tvResults:{},
+        
     },
 
     methods : {
@@ -30,6 +31,11 @@ const root = new Vue({
         fiveStarsVote(number) {
             const roundedNumber = Math.ceil(number);
             return Math.ceil(roundedNumber / 2);
+        },
+
+        getShortOverview(string) {
+            const plot = string.substr(0 , 200)
+            return plot + "..."
         }
     },
 })
