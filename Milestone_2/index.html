@@ -28,7 +28,7 @@
                 <li class="movie" v-for="result in movieResults">
                     <div class="title">{{ result.title }}</div>
                     <div class="original_title">{{ result.original_title }}</div>
-                    <img class="language" :src="getFlag(result.original_language)" :alt="result.original_language">
+                    <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
                     <div class="vote">{{ result.vote_average }}</div>
                 </li> 
             </ul>
@@ -39,7 +39,7 @@
                 <li class="tv_show" v-for="result in tvResults">
                     <div class="title">{{ result.name }}</div>
                     <div class="original_title">{{ result.original_name }}</div>
-                    <img class="language" :src="getFlag(result.original_language)" :alt="result.original_language">
+                    <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
                     <div class="vote">{{ result.vote_average }}</div>
                 </li>
             </ul>
