@@ -14,9 +14,14 @@ header{
     background-color: #242526;
     height: 80px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
-
+.logo_text{
+    text-transform: uppercase;
+    color: red;
+    align-self: center;
+    margin-left: 15px;
+}
 .query{
     display: flex;
     align-self: center;
@@ -24,7 +29,7 @@ header{
 
 .query > button,
 .query > input{
-    margin: 0 10px;
+    margin: 0 15px;
     padding: 5px;
 }
 /* /HEADER */

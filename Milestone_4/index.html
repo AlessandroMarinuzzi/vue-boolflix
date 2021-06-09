@@ -16,6 +16,7 @@
         <!-- HEADER -->
         <header id="site_header">
             <!-- Search -->
+            <h1 class="logo_text">Boolflix</h1>
             <div class="query">
                 <button @click="search">Search</button>
                 <input type="text" v-model="query" @keyup.enter="search">
@@ -27,7 +28,7 @@
         <!-- MAIN -->
         <main id="site_main">
             <!-- Movies -->
-            <h2 class="section_title">movies</h2>
+            <h2 class="section_title" v-if="movie_list">movies:</h2>
             <ul class="movie_list">
                 <li class="movie" v-for="result in movieResults">
                     <img class="poster" :src="result.poster_path ? 'https://image.tmdb.org/t/p/w342' + result.poster_path : './assets/img/poster_placeholder.png'" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
@@ -48,7 +49,7 @@
             <!-- /Movies -->
 
             <!-- Tv Series -->
-            <h2 class="section_title">tv-series</h2>
+            <h2 class="section_title" v-if="tv_list">tv-series:</h2>
             <ul class="tv_list">
                 <li class="tv_show" v-for="result in tvResults">
                     <img class="poster" :src="result.poster_path ? 'https://image.tmdb.org/t/p/w342' + result.poster_path : './assets/img/poster_placeholder.png'" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
