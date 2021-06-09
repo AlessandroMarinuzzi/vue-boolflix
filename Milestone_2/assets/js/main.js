@@ -27,11 +27,10 @@ const root = new Vue({
             })
         },
 
-        // fiveStarsVote(number) {
-        //     const roundedNumber = Math.ceil(number);
-        //     console.log(roundedNumber);
-        //     return parseInt(roundedNumber, 5);
-        // }
+        fiveStarsVote(number) {
+            const roundedNumber = Math.ceil(number);
+            return Math.ceil(roundedNumber / 2);
+        }
     },
 })
 

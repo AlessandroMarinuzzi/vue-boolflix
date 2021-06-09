@@ -57,6 +57,16 @@ img.language{
     width: 30px;
     object-fit: contain;
 }
+.stars_box{
+    margin-bottom: 5px;
+}
+.fa-star{
+    color: white;
+    font-size: 13px;
+}
+.voted_star{
+    color: gold;
+}
 
 
 /* /MAIN */

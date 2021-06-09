@@ -32,7 +32,13 @@
                     <div class="title">{{ result.title }}</div>
                     <div class="original_title">{{ result.original_title }}</div>
                     <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
-                    <div class="vote">{{ result.vote_average }}</div>
+                    <div class="vote">
+                        <div class="stars_box">
+                            <i class="fas fa-star" v-for="(star, index) in 5" :class="{ voted_star: index < fiveStarsVote(result.vote_average) }"></i>
+                        </div>
+                        <span class="vote_number">{{ fiveStarsVote(result.vote_average) }} /5</span>
+                        <!-- :class="{ voted_star: index < fiveStarsVote(result.vote_average) } -->
+                    </div>
                 </li> 
             </ul>
             <!-- /Movies -->
@@ -43,7 +49,12 @@
                     <div class="title">{{ result.name }}</div>
                     <div class="original_title">{{ result.original_name }}</div>
                     <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
-                    <div class="vote">{{ result.vote_average }}</div>
+                    <div class="vote">
+                        <div class="stars_box">
+                            <i class="fas fa-star" v-for="(star, index) in 5" :class="{ voted_star: index < fiveStarsVote(result.vote_average) }"></i>
+                        </div>
+                        <span class="vote_number">{{ fiveStarsVote(result.vote_average) }} /5</span>
+                    </div>
                 </li>
             </ul>
             <!-- /Tv Series -->
