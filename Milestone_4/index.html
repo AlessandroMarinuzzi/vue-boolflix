@@ -27,35 +27,42 @@
         <!-- MAIN -->
         <main id="site_main">
             <!-- Movies -->
+            <h2 class="section_title">movies</h2>
             <ul class="movie_list">
                 <li class="movie" v-for="result in movieResults">
-                    <img :src="'https://image.tmdb.org/t/p/w342' + result.poster_path" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
-                    <div class="title">{{ result.title }}</div>
-                    <div class="original_title">{{ result.original_title }}</div>
-                    <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
-                    <div class="vote">
-                        <div class="stars_box">
-                            <i class="fas fa-star" v-for="(star, index) in 5" :class="{ voted_star: index < fiveStarsVote(result.vote_average) }"></i>
+                    <img class="poster" :src="result.poster_path ? 'https://image.tmdb.org/t/p/w342' + result.poster_path : './assets/img/poster_placeholder.png'" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
+                    <div class="info">
+                        <div class="title">Title: {{ result.title }}</div>
+                        <div class="original_title">Original Title: {{ result.original_title }}</div>
+                        <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
+                        <div class="vote">
+                            <div class="stars_box">
+                                <i class="fas fa-star" v-for="(star, index) in 5" :class="{ voted_star: index < fiveStarsVote(result.vote_average) }"></i>
+                            </div>
+                            <div class="vote_number">Rating: {{ fiveStarsVote(result.vote_average) }} /5</div>
                         </div>
-                        <span class="vote_number">{{ fiveStarsVote(result.vote_average) }} /5</span>
-                        <!-- :class="{ voted_star: index < fiveStarsVote(result.vote_average) } -->
+                        <p class="overview">Overview: {{result.overview}}</p>
                     </div>
                 </li> 
             </ul>
             <!-- /Movies -->
 
             <!-- Tv Series -->
+            <h2 class="section_title">tv-series</h2>
             <ul class="tv_list">
                 <li class="tv_show" v-for="result in tvResults">
-                    <img :src="'https://image.tmdb.org/t/p/w342' + result.poster_path" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
-                    <div class="title">{{ result.name }}</div>
-                    <div class="original_title">{{ result.original_name }}</div>
-                    <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
-                    <div class="vote">
-                        <div class="stars_box">
-                            <i class="fas fa-star" v-for="(star, index) in 5" :class="{ voted_star: index < fiveStarsVote(result.vote_average) }"></i>
+                    <img class="poster" :src="result.poster_path ? 'https://image.tmdb.org/t/p/w342' + result.poster_path : './assets/img/poster_placeholder.png'" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
+                    <div class="info">
+                        <div class="title">{{ result.name }}</div>
+                        <div class="original_title">{{ result.original_name }}</div>
+                        <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
+                        <div class="vote">
+                            <div class="stars_box">
+                                <i class="fas fa-star" v-for="(star, index) in 5" :class="{ voted_star: index < fiveStarsVote(result.vote_average) }"></i>
+                            </div>
+                            <div class="vote_number">{{ fiveStarsVote(result.vote_average) }} /5</div>
                         </div>
-                        <span class="vote_number">{{ fiveStarsVote(result.vote_average) }} /5</span>
+                        <p class="overview">Overview: {{result.overview}}</p>
                     </div>
                 </li>
             </ul>
