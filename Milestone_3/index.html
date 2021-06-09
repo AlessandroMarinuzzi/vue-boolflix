@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Boolflix</title>
+</head>
+
+<body>
+    <div id="root" class="container">
+        <!-- HEADER -->
+        <header id="site_header">
+            <!-- Search -->
+            <div class="query">
+                <button @click="search">Search</button>
+                <input type="text" v-model="query" @keyup.enter="search">
+            </div>
+            <!-- /Search -->
+        </header>
+        <!-- /HEADER -->
+
+        <!-- MAIN -->
+        <main id="site_main">
+            <!-- Movies -->
+            <ul class="movie_list">
+                <li class="movie" v-for="result in movieResults">
+                    <div class="title">{{ result.title }}</div>
+                    <div class="original_title">{{ result.original_title }}</div>
+                    <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
+                    <div class="vote">{{ result.vote_average }}</div>
+                </li> 
+            </ul>
+            <!-- /Movies -->
+
+            <!-- Tv Series -->
+            <ul class="tv_list">
+                <li class="tv_show" v-for="result in tvResults">
+                    <div class="title">{{ result.name }}</div>
+                    <div class="original_title">{{ result.original_name }}</div>
+                    <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
+                    <div class="vote">{{ result.vote_average }}</div>
+                </li>
+            </ul>
+            <!-- /Tv Series -->
+        </main>
+        <!-- /MAIN -->
+    </div>
+
+    <!-- Vue JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- AXIOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- My JS -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
