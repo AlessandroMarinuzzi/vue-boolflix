@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- My Css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Boolflix</title>
+</head>
+
+<body>
+    <div id="root" class="container">
+        <!-- HEADER -->
+        <header id="site_header">
+            <!-- Search -->
+            <div class="query">
+                <button @click="search">Search</button>
+                <input type="text" v-model="query" @keyup.enter="search">
+            </div>
+            <!-- /Search -->
+        </header>
+        <!-- /HEADER -->
+
+        <!-- MAIN -->
+        <main id="site_main">
+            <!-- Movies -->
+            <ul class="movie_list">
+                <li class="movie" v-for="result in movieResults">
+                    <img :src="'https://image.tmdb.org/t/p/w342' + result.poster_path" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
+                    <div class="title">{{ result.title }}</div>
+                    <div class="original_title">{{ result.original_title }}</div>
+                    <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
+                    <div class="vote">
+                        <div class="stars_box">
+                            <i class="fas fa-star" v-for="(star, index) in 5" :class="{ voted_star: index < fiveStarsVote(result.vote_average) }"></i>
+                        </div>
+                        <span class="vote_number">{{ fiveStarsVote(result.vote_average) }} /5</span>
+                        <!-- :class="{ voted_star: index < fiveStarsVote(result.vote_average) } -->
+                    </div>
+                </li> 
+            </ul>
+            <!-- /Movies -->
+
+            <!-- Tv Series -->
+            <ul class="tv_list">
+                <li class="tv_show" v-for="result in tvResults">
+                    <img :src="'https://image.tmdb.org/t/p/w342' + result.poster_path" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
+                    <div class="title">{{ result.name }}</div>
+                    <div class="original_title">{{ result.original_name }}</div>
+                    <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
+                    <div class="vote">
+                        <div class="stars_box">
+                            <i class="fas fa-star" v-for="(star, index) in 5" :class="{ voted_star: index < fiveStarsVote(result.vote_average) }"></i>
+                        </div>
+                        <span class="vote_number">{{ fiveStarsVote(result.vote_average) }} /5</span>
+                    </div>
+                </li>
+            </ul>
+            <!-- /Tv Series -->
+        </main>
+        <!-- /MAIN -->
+    </div>
+
+    <!-- Vue JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- AXIOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- My JS -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
