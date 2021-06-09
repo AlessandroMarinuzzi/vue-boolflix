@@ -29,6 +29,7 @@
             <!-- Movies -->
             <ul class="movie_list">
                 <li class="movie" v-for="result in movieResults">
+                    <img :src="'https://image.tmdb.org/t/p/w342' + result.poster_path" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
                     <div class="title">{{ result.title }}</div>
                     <div class="original_title">{{ result.original_title }}</div>
                     <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
@@ -46,6 +47,7 @@
             <!-- Tv Series -->
             <ul class="tv_list">
                 <li class="tv_show" v-for="result in tvResults">
+                    <img :src="'https://image.tmdb.org/t/p/w342' + result.poster_path" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
                     <div class="title">{{ result.name }}</div>
                     <div class="original_title">{{ result.original_name }}</div>
                     <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
