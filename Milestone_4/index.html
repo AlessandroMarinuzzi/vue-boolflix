@@ -27,61 +27,78 @@
 
         <!-- MAIN -->
         <main id="site_main">
-            <!-- Movies -->
+            <!-- ********** MOVIES ********** -->
 
-            <!-- Section Title -->
-            <span class="section_title" >movies: </span>
-            <!-- /Section Title -->
+            <div class="movies_section">
+                <!-- Section Title -->
+                <h4 class="section_title" >movies: </h4>
+                <!-- /Section Title -->
 
-            <!-- Movies List -->
-            <ul class="movie_list" v-if="movie_list">
-                <!-- Single Movie structure -->
-                <li class="movie" v-for="result in movieResults">
-                    <img class="poster" :src="result.poster_path ? 'https://image.tmdb.org/t/p/w342' + result.poster_path : './assets/img/poster_placeholder.png'" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
-                    <div class="info">
-                        <div class="title">Title: {{ result.title }}</div>
-                        <div class="original_title" v-if="result.original_title != result.title">Original Title: {{ result.original_title }}</div>
-                        <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
-                        <div class="vote">
-                            <div class="stars_box">
-                                <i class="fas fa-star" v-for="(star, index) in 5" :class="{ voted_star: index < fiveStarsVote(result.vote_average) }"></i>
+                <!-- Message to display in case of research failing -->
+                <span class="research_failure" v-if="!movieResults">Your Research Did Not Return Any Result.</span>
+                <!-- /Message to display in case of research failing -->
+
+                <!-- Movies List -->
+                <ul class="movie_list"> 
+                    <!-- Single Movie structure -->
+                    <li class="movie" v-for="result in movieResults">
+                        <img class="poster" :src="result.poster_path ? 'https://image.tmdb.org/t/p/w342' + result.poster_path : './assets/img/poster_placeholder.png'" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
+                        <div class="info">
+                            <div class="title">Title: {{ result.title }}</div>
+                            <div class="original_title" v-if="result.original_title != result.title">Original Title: {{ result.original_title }}</div>
+                            <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
+                            <div class="vote">
+                                <div class="stars_box">
+                                    <i class="fas fa-star" v-for="(star, index) in 5" :class="{ voted_star: index < fiveStarsVote(result.vote_average) }"></i>
+                                </div>
+                                <div class="vote_number">Ratings: {{ fiveStarsVote(result.vote_average) }} /5</div>
                             </div>
-                            <div class="vote_number">Ratings: {{ fiveStarsVote(result.vote_average) }} /5</div>
+                            <p class="overview">Overview: {{result.overview ? getShortOverview(result.overview) : "Plot not available yet."}}</p>
                         </div>
-                        <p class="overview">Overview: {{result.overview ? getShortOverview(result.overview) : "Plot not available yet."}}</p>
-                    </div>
-                </li> 
-                <!-- /Single Movie structure -->
-            </ul>
-            <!-- /Movies List -->
-
-
-            <!-- Message to display in case of research failing -->
-            <span v-else>Your research did not return any results</span>
-            <!-- /Message to display in case of research failing -->
+                    </li> 
+                    <!-- /Single Movie structure -->
+                </ul>
+                <!-- /Movies List -->
+            </div>
             
-            <!-- /Movies -->
+            <!-- ********** /MOVIES ********** -->
 
-            <!-- Tv Series -->
-            <h2 class="section_title" v-if="tv_list">tv-series:</h2>
-            <ul class="tv_list">
-                <li class="tv_show" v-for="result in tvResults">
-                    <img class="poster" :src="result.poster_path ? 'https://image.tmdb.org/t/p/w342' + result.poster_path : './assets/img/poster_placeholder.png'" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
-                    <div class="info">
-                        <div class="title">Title: {{ result.name }}</div>
-                        <div class="original_title" v-if="result.original_name != result.name">Original Title: {{ result.original_name }}</div>
-                        <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
-                        <div class="vote">
-                            <div class="stars_box">
-                                <i class="fas fa-star" v-for="(star, index) in 5" :class="{ voted_star: index < fiveStarsVote(result.vote_average) }"></i>
+            <!-- ********** TV SERIES ********** -->
+
+            <div class="tvSeries_section">
+                <!-- Section Title -->
+                <h4 class="section_title">tv-series:</h4>
+                <!-- /Section Title -->
+
+                <!-- Message to display in case of research failing -->
+                <span class="research_failure" v-if="!tvResults">Your Research Did Not Return Any Result.</span>
+                <!-- /Message to display in case of research failing -->
+
+                <!-- Tv Series List -->
+                <ul class="tv_list">
+                    <!-- Single Tv Serie Structure -->
+                    <li class="tv_show" v-for="result in tvResults">
+                        <img class="poster" :src="result.poster_path ? 'https://image.tmdb.org/t/p/w342' + result.poster_path : './assets/img/poster_placeholder.png'" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
+                        <div class="info">
+                            <div class="title">Title: {{ result.name }}</div>
+                            <div class="original_title" v-if="result.original_name != result.name">Original Title: {{ result.original_name }}</div>
+                            <img class="language" :src="'https://www.unknown.nu/flags/images/' + result.original_language + '-100'" :alt="result.original_language">
+                            <div class="vote">
+                                <div class="stars_box">
+                                    <i class="fas fa-star" v-for="(star, index) in 5" :class="{ voted_star: index < fiveStarsVote(result.vote_average) }"></i>
+                                </div>
+                                <div class="vote_number">Ratings: {{ fiveStarsVote(result.vote_average) }} /5</div>
                             </div>
-                            <div class="vote_number">Ratings: {{ fiveStarsVote(result.vote_average) }} /5</div>
+                            <p class="overview">Overview: {{result.overview ? getShortOverview(result.overview) : "Plot not available yet."}}</p>
                         </div>
-                        <p class="overview">Overview: {{result.overview ? getShortOverview(result.overview) : "Plot not available yet."}}</p>
-                    </div>
-                </li>
-            </ul>
-            <!-- /Tv Series -->
+                    </li>
+                    <!-- /Single Tv Serie Structure -->
+
+                </ul>
+                <!-- /Tv Series List -->
+            </div>
+
+            <!-- ********** /TV SERIES ********** -->
         </main>
         <!-- /MAIN -->
     </div>

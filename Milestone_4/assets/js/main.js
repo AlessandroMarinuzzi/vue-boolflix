@@ -5,9 +5,9 @@ const root = new Vue({
 
         query: "",
 
-        movieResults:{},
+        movieResults:null,
 
-        tvResults:{},
+        tvResults:null,
         
     },
 

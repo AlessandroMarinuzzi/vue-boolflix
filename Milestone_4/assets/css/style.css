@@ -42,9 +42,9 @@ main{
 .section_title{
     text-transform: uppercase;
     font-size: 25px;
-    font-weight: bolder;
     padding-top: 20px;
     margin-left: 20px;
+    display: inline-block;
 }
 
 .poster{
