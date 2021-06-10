@@ -19,7 +19,7 @@
             <h1 class="logo_text">Boolflix</h1>
             <div class="query">
                 <button @click="search">Search</button>
-                <input type="text" v-model="query" @keyup.enter="search">
+                <input type="text" v-model="query" @keyup.enter="search" placeholder="Insert title...">
             </div>
             <!-- /Search -->
         </header>
@@ -28,8 +28,14 @@
         <!-- MAIN -->
         <main id="site_main">
             <!-- Movies -->
-            <h2 class="section_title" v-if="movie_list">movies:</h2>
-            <ul class="movie_list">
+
+            <!-- Section Title -->
+            <span class="section_title" >movies: </span>
+            <!-- /Section Title -->
+
+            <!-- Movies List -->
+            <ul class="movie_list" v-if="movie_list">
+                <!-- Single Movie structure -->
                 <li class="movie" v-for="result in movieResults">
                     <img class="poster" :src="result.poster_path ? 'https://image.tmdb.org/t/p/w342' + result.poster_path : './assets/img/poster_placeholder.png'" :alt="result.original_title ? 'Poster image of ' + result.original_title : 'Poster image of ' + result.original_name">
                     <div class="info">
@@ -45,7 +51,15 @@
                         <p class="overview">Overview: {{result.overview ? getShortOverview(result.overview) : "Plot not available yet."}}</p>
                     </div>
                 </li> 
+                <!-- /Single Movie structure -->
             </ul>
+            <!-- /Movies List -->
+
+
+            <!-- Message to display in case of research failing -->
+            <span v-else="">Your research did not return any results</span>
+            <!-- /Message to display in case of research failing -->
+            
             <!-- /Movies -->
 
             <!-- Tv Series -->

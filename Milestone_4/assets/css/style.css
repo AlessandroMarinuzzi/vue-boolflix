@@ -41,7 +41,9 @@ main{
 
 .section_title{
     text-transform: uppercase;
-    padding-top: 10px;
+    font-size: 25px;
+    font-weight: bolder;
+    padding-top: 20px;
     margin-left: 20px;
 }
 
