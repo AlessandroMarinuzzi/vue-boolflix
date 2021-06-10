@@ -1,0 +1,112 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #18191a;
+    height: 100vh;
+}
+
+/* HEADER */
+header{
+    background-color: #242526;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+.logo_text{
+    text-transform: uppercase;
+    color: red;
+    align-self: center;
+    margin-left: 15px;
+}
+.query{
+    display: flex;
+    align-self: center;
+}
+
+.query > button,
+.query > input{
+    margin: 0 15px;
+    padding: 5px;
+}
+/* /HEADER */
+
+/* MAIN */
+main{
+    color: white;
+}
+
+.section_title{
+    text-transform: uppercase;
+    font-size: 25px;
+    padding-top: 20px;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.poster{
+    width: 300px
+}
+
+.info{
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    padding-top: 80px;
+    display:none;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.movie_list,
+.tv_list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+    border-bottom: 5px solid red;
+}
+.movie,
+.tv_show{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid white;
+    margin: 20px 15px;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+}
+.movie:hover .info,
+.tv_show:hover .info{
+    display: block;
+    cursor: pointer;
+}
+
+img.language{
+    height: 50px;
+    width: 40px;
+    object-fit: contain;
+    margin: 10px 0;
+}
+.vote{
+    margin-bottom: 10px;
+}
+.stars_box{
+    margin-bottom: 5px;
+}
+.fa-star{
+    color: white;
+    font-size: 13px;
+}
+.voted_star{
+    color: gold;
+}
+
+
+/* /MAIN */
+
